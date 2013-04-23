@@ -16,5 +16,5 @@
            (route/not-found "Page not found!"))
 
 (defn main [& args]
-  (mc/connect-via-uri! "mongodb://localhost/personal-site")
-  (run-jetty (handler/site webservice) {:port 8080}))
+  (mc/connect-via-uri! (get (System/getenv) "MONGOHQ_URL" "mongodb://localhost/personal-site"))
+  (run-jetty (handler/site webservice) {:port (Integer/parseInt (get (System/getenv) "PORT" "8080"))}))
