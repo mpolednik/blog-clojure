@@ -29,6 +29,28 @@
   (html
     (map article-item articles)))
 
+(defn article-row [{:keys [header permalink created]}]
+  (html
+     [:tr
+      [:td {:href (url "/articles/" permalink)} header]
+      [:td (tf/unparse (tf/formatter-local "EEE MMM dd HH:mm:ss yyyy") created)]
+      [:td (tf/unparse (tf/formatter-local "EEE MMM dd HH:mm:ss yyyy") created)]
+      [:td
+       [:i.icon-trash]
+       [:i.icon-edit]]]))
+
+(defn articles-table [articles]
+  (html
+    [:table.table.table-hover
+     [:thead
+      [:tr
+       [:th "header"]
+       [:th "permalink"]
+       [:th "created"]
+       [:th "actions"]]
+     [:tbody
+      (map article-row articles)]]]))
+
 (defn article-form []
   (html
     [:form.horizontal {:action "" :method "post"}
@@ -40,4 +62,5 @@
       [:div.controls
        [:textarea#inputText {:name "text"}]]
       [:div.controls
-       [:button.btn {:type "submit"} "Publish"]]]))
+       [:button.btn {:type "submit"} "Publish"]]]
+    (articles-table (model/getall))))
