@@ -25,10 +25,10 @@
      [:title "title"]
      [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
      (include-css "/css/bootstrap.css/"
-                  "/css/bootstra-responsive.css")]
+                  "/css/bootstrap-responsive.css")]
     [:body
      (navbar)
      [:div.container
       content]
-     (include-js "/js/bootstrap.min.js"
-                 "http://code.jquery.com/jquery.js")]))
+     (include-js "http://code.jquery.com/jquery.js"
+                 "/js/bootstrap.min.js")]))
