@@ -11,11 +11,9 @@
         [:span.icon-bar]
         [:span.icon-bar]
         [:span.icon-bar]]
-       [:a.brand {:href "#"} "mpolednik.com"]
+       [:a.brand {:href "/"} "mpolednik.com"]
        [:div.nav-collapse.collapse
         [:ul.nav
-         [:li
-          [:a {:href "#"} "Home"]]
          [:li
           [:a {:href "#"} "About"]]]]]]]))
 

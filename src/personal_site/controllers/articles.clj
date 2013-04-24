@@ -3,8 +3,8 @@
         monger.joda-time
         ring.util.response)
   (:require [monger.collection :as mc]
-            [clj-time.core :as t]))
+            [personal-site.models.articles :as model]))
 
 (defn add [header text]
-  (mc/insert "articles" {:header header, :text text, :created (t/now)})
+  (model/add header text)
   (redirect "/"))

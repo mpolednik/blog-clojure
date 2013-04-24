@@ -10,6 +10,7 @@
 
 (defroutes webservice
            (GET "/" [] (view-articles/articles-list))
+           (GET "/articles/:permalink" [permalink] (view-articles/article permalink))
            (GET "/admin/articles" [] (view-articles/article-form))
            (POST "/admin/articles" [header text] (controller-articles/add header text))
            (route/resources "/")

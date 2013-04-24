@@ -8,3 +8,6 @@
 
 (defn article-form []
   (common/layout (template/article-form)))
+
+(defn article [permalink]
+  (common/layout (template/article (model/getone permalink))))
