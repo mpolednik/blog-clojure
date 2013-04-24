@@ -5,7 +5,10 @@
             [clojure.string :as s]))
 
 (defn permalink [header]
-  (s/replace (s/lower-case (s/replace (str header) #"[,=+>%<./\_ ]" (fn [s] "-"))) #"-+" (fn [s] "-")))
+  (s/replace 
+    (s/lower-case (s/replace (str header) #"[,=+>%<./\_?!:;()\[\]{}@#$%^&* ]" "-"))
+    #"-+"
+    "-"))
 
 (defn getall []
   (with-collection "articles"
