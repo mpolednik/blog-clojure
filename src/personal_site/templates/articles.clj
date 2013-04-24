@@ -14,8 +14,8 @@
      text]
     [:nav.article-nav
      [:ul
-      [:li [:a {:href "#"} "previous"]]
-      [:li [:a {:href "#"} "next"]]]]))
+      [:li [:a {:href "#"} "&laquo; previous"]]
+      [:li [:a {:href "#"} "next &raquo;"]]]]))
 
 (defn article-item [{:keys [header text permalink created]}]
   (html
